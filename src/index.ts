@@ -15,6 +15,8 @@ if (!keyPath) {
   throw new Error('SSM_PATH not set');
 }
 
+const noDownload = process.env.NO_DOWNLOAD === 'true';
+
 const baseDir = resolve(process.cwd(), process.env.OUTPUT_DIR || '.');
 
 const limit = pLimit(5);
@@ -80,9 +82,9 @@ export const ssm = new SSMClient({ region: "ap-southeast-2" });
 
     const dest = resolve(baseDir, `${playback.id}.${probable.ext}`);
 
-    if (needDownload(dest, Number(probable.filesize))) {
+    if (!noDownload && needDownload(dest, Number(probable.filesize))) {
       downloads.push(
-        limit(() => downloadImage(src, dest))
+        limit(() => dest) // downloadImage(src, dest))
       );
     }
   }

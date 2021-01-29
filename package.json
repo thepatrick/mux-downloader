@@ -6,7 +6,6 @@
   "scripts": {
     "compile": "tsc",
     "watch": "tsc -w",
-    "prestart": "npm run compile",
     "start": "node dist/src/index.js",
     "lint": "eslint --ext .ts ./",
     "clean": "del-cli dist"
