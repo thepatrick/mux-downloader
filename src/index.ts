@@ -76,10 +76,11 @@ export const ssm = new SSMClient({ region: "ap-southeast-2" });
     fileSize = fileSize + Number(probable.filesize);
 
     const src = `https://stream.mux.com/${playback.id}/${probable.name}`;
-    console.log(`curl ${src} > ${playback.id}.${probable.ext}`);
+    const dest = resolve(baseDir, `${playback.id}.${probable.ext}`);
+
+    console.log(`curl ${src} > ${dest}`);
     console.log();
 
-    const dest = resolve(baseDir, `${playback.id}.${probable.ext}`);
 
     if (!noDownload && needDownload(dest, Number(probable.filesize))) {
       downloads.push(
