@@ -15,6 +15,8 @@ if (!keyPath) {
   throw new Error('SSM_PATH not set');
 }
 
+const baseDir = resolve(process.cwd(), process.env.OUTPUT_DIR || '.');
+
 const limit = pLimit(5);
 
 export const ssm = new SSMClient({ region: "ap-southeast-2" });
@@ -76,7 +78,7 @@ export const ssm = new SSMClient({ region: "ap-southeast-2" });
     console.log(`curl ${src} > ${playback.id}.${probable.ext}`);
     console.log();
 
-    const dest = resolve(process.cwd(), `${playback.id}.${probable.ext}`);
+    const dest = resolve(baseDir, `${playback.id}.${probable.ext}`);
 
     if (needDownload(dest, Number(probable.filesize))) {
       downloads.push(
