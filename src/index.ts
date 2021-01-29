@@ -1,9 +1,8 @@
 import { SSMClient } from "@aws-sdk/client-ssm";
-import Mux, { PlaybackId } from '@mux/mux-node';
+import Mux from '@mux/mux-node';
 import pLimit from "p-limit";
-import { extname, parse, resolve } from "path";
-import { andThen, path, pick, pipe, prop, propEq, sortBy } from 'ramda';
-import { downloadImage } from "./download";
+import { resolve } from "path";
+import { prop, propEq, sortBy } from 'ramda';
 import { getMuxCredentials } from "./getMuxCredentials";
 import { needDownload } from "./needDownload";
 

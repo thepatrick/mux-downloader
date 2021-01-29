@@ -1,6 +1,5 @@
 import { is, where } from 'ramda';
 
-
 export interface MuxCredentials {
   id: string;
   secret: string;
