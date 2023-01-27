@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-ssm": "^3.4.0",
-    "@mux/mux-node": "^3.1.1",
+    "@mux/mux-node": "^7.3.0",
     "axios": "^0.21.1",
     "p-limit": "^2.3.0"
   },
