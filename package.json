@@ -15,7 +15,7 @@
   "dependencies": {
     "@aws-sdk/client-ssm": "^3.4.0",
     "@mux/mux-node": "^12.0.0",
-    "axios": "^1.0.0",
+    "axios": "^1.12.0",
     "p-limit": "^7.0.0"
   },
   "devDependencies": {
